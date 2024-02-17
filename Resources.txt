@@ -1,1 +1,59 @@
-https://networkx.org/documentation/stable/reference/generated/networkx.convert_matrix.from_pandas_edgelist.html
+df_merged['Year'] = df_merged['Date'].dt.year
+den_by_year={}
+dia_by_year = {}
+effective_diameter_by_year = {}
+
+grouped = df_merged.groupby('Year')
+
+for year, group in grouped:
+    filtered_data = df_merged[df_merged['Year'] <= year]
+    G = nx.from_pandas_edgelist(filtered_data, 'FromNodeId', 'ToNodeId', create_using=nx.DiGraph())
+
+    # Get the largest connected component
+    largest_cc = max(nx.strongly_connected_components(G), key=len)
+    G_lcc = G.subgraph(largest_cc)
+
+    # Compute diameter of the largest connected component
+    dia = nx.diameter(G_lcc)
+    dia_by_year[year] = dia
+
+    density = nx.density(G_lcc)
+    den_by_year[year] = density
+
+    # Compute effective diameter of the largest connected component
+    effective_diameter = nx.effective_size(G)
+    effective_diameter_by_year[year] = effective_diameter
+
+    print("Density:", density)
+    # print("Diameter of largest connected component:", dia)
+
+
+years = list(den_by_year.keys())
+den = list(den_by_year.values())
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(years, den, marker='o', linestyle='-')
+plt.title('Density of Largest Connected Component')
+plt.xlabel('Year')
+plt.ylabel('Density')
+plt.grid(True)
+plt.xticks(years, rotation=45)
+plt.tight_layout()
+plt.show()
+# plt.savefig("DensitySCC.png")
+
+years = list(dia_by_year.keys())
+dia = list(dia_by_year.values())
+
+# Plotting
+plt.figure(figsize=(10, 6))
+plt.plot(years, dia, marker='o', linestyle='-')
+plt.title('Diameter of Largest Connected Component')
+plt.xlabel('Year')
+plt.ylabel('Diameter')
+plt.grid(True)
+plt.xticks(years, rotation=45)
+plt.tight_layout()
+plt.show()
+# plt.savefig("DiameterSCC.png")
