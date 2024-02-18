@@ -230,4 +230,5 @@ plt.scatter(
     c=np.where(labels_test == 1, "b", "r"),
     alpha=0.5,
 )
+plt.show()
 
