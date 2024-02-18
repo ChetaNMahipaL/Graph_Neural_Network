@@ -1,4 +1,5 @@
 # Graph_Neural_Network
+
 ## **Directory Structure**
 
 ```
@@ -43,3 +44,24 @@
 ├── Task_2_LabelP.ipynb
 └── Task_2 Temporal.ipynb
 ```
+
+## **Execution of code**
+### **Task_1**
+Install the necessary libraries:
+- `pip install networkx`
+- `pip install matplotlib`
+- `pip install scikit-learn`
+
+Run the jupyter notebook named **Task_1.ipynb**.
+### **Task_2**
+Install the necessary libraries:
+- `pip install networkx`
+- `pip install matplotlib`
+- `pip install scikit-learn`
+
+Run the jupyter notebook named 
+- **Task_2_GN.ipynb** (Contains Community Detection Algorithm-1)
+- **Task_2_LabelP.ipynb** (Contains Community Detection Algorithm-2)
+- **Task_2 Temporal.ipynb** (Contains Temporal Community Detection)
+
+**All the results are stored in Plots folder for reference**
