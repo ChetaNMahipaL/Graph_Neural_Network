@@ -94,4 +94,16 @@ Run the jupyter notebook named
 - **Task_2_LabelP.ipynb** (Contains Community Detection Algorithm-2)
 - **Task_2 Temporal.ipynb** (Contains Temporal Community Detection)
 
+### **Task_3**
+Install the necessary libraries:
+- `pip install networkx`
+- `pip install matplotlib`
+- `pip install scikit-learn`
+- `pip install stellargraph`
+- `pip install pytorch`
+
+Run the python file named 
+- **GNN.py**
+- **Node2vec.py**
+
 **All the results are stored in Plots folder for reference**
