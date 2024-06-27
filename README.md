@@ -72,7 +72,7 @@ Please refer to [Analysis](/Analysis.pdf)
 ## References
 
 - [Node2Vec: Scalable Feature Learning for Networks](https://arxiv.org/pdf/1607.00653.pdf)
-- (Add other relevant papers or resources you used)
+- For quick summary and comment on above paper [Click](/Research_Paper.pdf)
 
 ## **Execution of code**
 ### **Task_1**
